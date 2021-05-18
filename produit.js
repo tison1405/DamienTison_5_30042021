@@ -115,7 +115,7 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
           const storageCommande = JSON.stringify(commande);
           
 
-          localStorage.setItem(numero, storageCommande);
+          localStorage.setItem("commande"+numero+name, storageCommande);
           console.log(commande);
         })
     }

@@ -1,9 +1,11 @@
 let numero = 0;
 let prixTotals = 0
 
+
 for( let i = 0; i < localStorage.length; i++){
     
    let nomCommande = localStorage.key(i);
+   console.log(nomCommande);
     const Commande = JSON.parse(localStorage.getItem(nomCommande));
     if ((isNaN(Commande.prix) == false)){
         numero += 1;
@@ -16,8 +18,9 @@ for( let i = 0; i < localStorage.length; i++){
         document
             .getElementById("numero"+numero)
             .addEventListener("click", function(){
-                storage.removeItem(Commande.quantite);
+                localStorage.removeItem("commande"+Commande.article+Commande.nom);
                 document.location.reload();
+
         })
         
         
