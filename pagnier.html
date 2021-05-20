@@ -13,19 +13,19 @@
     <body>
         <div id="pagnier"></div>
         <div id="valeurPagnier"></div>
-        <input type="button" value="reset panier" id="reset" href/>
+        <input type="button" value="reset panier" id="reset"/>
 
-        <form class="was-validated" method="POST" action="#">
+        <form class="was-validated" method="POST" action="confirmation_de_commande.html">
           <fieldset>
             <legend>Vos Coordonnées</legend>
           <div class=row>
           <div class="col-md-3">
             <label for= "validationServer01" class="form-label">Nom de famille</label>
-            <input class="form-control is-invalid" id="validationServer01" placeholder="inscrir votre nom de famille" required/>
+            <input class="form-control is-invalid" id="validationServer01" pattern="[A-Za-z]{1,20}" placeholder="inscrir votre nom de famille" required/>
           </div>
           <div class="col-md-3">
             <label for= "validationServer02" class="form-label">Prénon</label>
-            <input class="form-control is-invalid" id="validationServer02" placeholder="inscrir votre prénom" required/>
+            <input class="form-control is-invalid" id="validationServer02" pattern="[A-Za-z]{1,20}" placeholder="inscrir votre prénom" required/>
           </div>
           <div class="col-md-3">
             <label for= "validationServer03" class="form-label">Adresse Email</label>
@@ -43,52 +43,20 @@
             <label for= "validationServer05" class="form-label">Ville</label>
             <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="inscrir votre ville" required/>
           </div>
-          <div class="col-md-4">
-            <label for= "validationServer06" class="form-label">Code Postal</label>
-            <input type="text" pattern="[0-9]{5}" class="form-control is-invalid" id="validationServer06" placeholder="" required/>
-          </div>
         </div>
       </fieldset>
 
-      <fieldset>
-        <legend>Votre moyen de paiement</legend>
-          <div class=row>
-            <div class="col-md-3">
-              <select class="form-select form-control is-invalid" required aria-label="select example">
-              <option value="">Carte de paiement</option>
-              <option value="Visa">Visa</option>
-              <option value="Master card">Master Card</option>
-              <option value="American Express">American Express</option>
-            </select>
-          </div>
-          </div>
-          <div class=row>
-            <div class="col-md-4">
-              <label for= "validationServer08" class="form-label">N° de la carte</label>
-              <input type="text" pattern="[0-9]{16}" class="form-control is-invalid" id="validationServer08" placeholder="xxxx xxxx xxxx xxxx" required/>
-            </div>
-            <div class="col-md-4">
-              <label for= "validationServer09" class="form-label">Date d'expiration</label>
-              <input type="text" pattern="[0-9]{2}/[0-9]{2}" class="form-control is-invalid" id="validationServer09" placeholder="xx/xx" required/>
-            </div>
-            <div class="col-md-4">
-              <label for= "validationServer10" class="form-label">Code de securité</label>
-              <input type="text" pattern="[0-9]{3}" class="form-control is-invalid" id="validationServer10" placeholder="xxx" required/>
-            </div>
-          </div>
-
-
-      </fieldset>
+    
 
         
           
         
           <div class="mb-3">
-            <button class="btn btn-primary" type="submit">Submit form</button>
+            <button class="btn btn-primary" type="submit" id="bouttonFormulaire">Submit form</button>
           </div>
         </form>
         <script src="pagnier.js"></script>
-        <script src="validationFormulaire.js"
+        <script src="validationFormulaire.js"></script>
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
         <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>

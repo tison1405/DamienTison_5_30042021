@@ -5,14 +5,12 @@ let prixTotals = 0
 for( let i = 0; i < localStorage.length; i++){
     
    let nomCommande = localStorage.key(i);
-   console.log(nomCommande);
+   
     const Commande = JSON.parse(localStorage.getItem(nomCommande));
     if ((isNaN(Commande.prix) == false)){
         numero += 1;
-        console.log(Commande);
         creerCommande(Commande.nom, Commande.prix, Commande.quantite, numero);
         prixTotals += Commande.prix*Commande.quantite/100;
-        console.log(prixTotals);
         supprimer (numero);
 
         document
@@ -48,6 +46,17 @@ function prixCommande (prixTotals){
 }
 prixCommande (prixTotals);
 
+document
+    .getElementById("bouttonFormulaire")
+    .addEventListener("click", function(){
+        tarif = {
+            tarifTotal:""
+        }
+        tarif.tarifTotal = prixTotals;
+        const storageTarif = JSON.stringify(tarif);
+        localStorage.setItem("totalTarif", storageTarif);
+    })
+
 function supprimer (numero){
     var x = document.createElement("input");
     x.setAttribute("type", "button")
@@ -64,7 +73,6 @@ document
     .addEventListener("click", function(){
         localStorage.clear();
         document.location.reload();
-        console.log("hello");
     })
 
 

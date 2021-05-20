@@ -19,7 +19,7 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
     description(teddie.description);
     getCouleurs(teddie.colors);
     prixUnitaire(teddie.price);
-    commander(teddie.price, teddie.name);
+    commander(teddie.price, teddie.name, teddie._id);
   })
 
   .catch(function(err) {
@@ -93,7 +93,7 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
     }
    
     
-    function commander(price, name){
+    function commander(price, name, id){
       let numero = 0;
       document
         .getElementById("Commander")
@@ -104,13 +104,15 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
             nom: "",
             prix: "",
             quantite: "",
-            article:""
+            article:"",
+            id:""
           }
           numero += 1;
           commande.nom = name;
           commande.prix = price;
           commande.quantite = numberTeddie;
           commande.article = numero;
+          commande.id = id;
 
           const storageCommande = JSON.stringify(commande);
           
