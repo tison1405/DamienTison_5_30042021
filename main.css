@@ -1,0 +1,64 @@
+body{
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+    font-family: "dancingScript-regular";
+    
+}
+@font-face
+{
+    font-family: "dancingScript-regular";
+    src: url(font/DancingScript-Regular.ttf);
+    font-display: swap;
+}
+.container-fluid{
+    background-color: #e3f2fd;
+}
+.logoImg{
+    height: 100px;
+    object-fit: cover;
+    
+}
+.navbar-nav{
+   width: 100%;
+   justify-content: space-between;
+    font-size: 30px;
+}
+#listing{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    background-color: rgb(243, 223, 241);
+    max-width: 1250px;
+    margin-left: auto;
+    margin-right: auto;
+}
+.card{
+    text-decoration: none;
+    font-size: 30px;
+    color: rgb(243, 223, 241);
+    margin: 10px 10px 10px 10px;
+    background-color:#e3f2fd ;
+    border-radius: 10px 10px;
+}
+.imageTeddy{
+    object-fit: cover;
+    height: 60%;
+}
+.card-title{
+    font-size: 30px;
+}
+.nav{
+    justify-content: space-around;
+}
+footer{
+   
+    background-color: #e3f2fd;
+   
+}
+.nav-item{
+
+    text-align: center;
+    padding: 10px;
+
+}

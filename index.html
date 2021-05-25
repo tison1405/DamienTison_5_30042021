@@ -3,14 +3,92 @@
 	<head>
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <meta charset="UTF-8"/>
+        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x" crossorigin="anonymous">
         <link href="css/all.css" rel="stylesheet">
-        <link href="css/style.css" rel="stylesheet">
+        <link href="main.css" rel="stylesheet">
 		<title>Ohmyfood</title>
 	</head>
     <body>
-        <div id="listing"></div>
+        <header class="navbar navbar-expand-lg navbar-light bg-light">
+            <div class="container-fluid d-flex">
+              <a class="navbar-brand" href="#"><h1><img src="https://user.oc-static.com/upload/2019/09/04/15675819263013_image1.png" alt="logo de orinoco" class="logoImg"></h1></a>
+              <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+              </button>
+              <div class=" menu collapse navbar-collapse" id="navbarNavDropdown">
+                    <div class="navbar-nav">
+                    <div class="nav-item">
+                         <a class="nav-link" href="#">Page d'accueil</a>
+                    </div>
+                     <div class="nav-item">
+                         <a class="nav-link" href="#">Pagnier<i class="fas fa-shopping-cart"></i></a>
+                     </div>
+                    </div>
+              </div>
+            </div>
+        </header>
+        <section>
+            <div class="row">
+                <h2 class="text-center col-12">Ton nouvel ami Teddie pour la vie</h2>
+            </div>
+        </section>
+        <section>
+            <div id="listing" class="row"></div>
+        </section>  
+        <footer class="row"> 
+            <ul class="nav item-center">
+                <li class="nav-item col-6 col-lg-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Orinoco entreprise
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Engagement</a></li>
+                          <li><a class="dropdown-item" href="#">Commerce équitable</a></li>
+                          <li><a class="dropdown-item" href="#">Qui sommes nous?</a></li>
+                        </ul>
+                      </div>
+                </li>
+                <li class="nav-item col-6 col-lg-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Mention légales
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Article 1</a></li>
+                          <li><a class="dropdown-item" href="#">Article 2</a></li>
+                          <li><a class="dropdown-item" href="#">Article 3</a></li>
+                        </ul>
+                      </div>
+                </li>
+                <li class="nav-item col-6 col-lg-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Service client
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Mode de livraison</a></li>
+                          <li><a class="dropdown-item" href="#">Retour & échange</a></li>
+                          <li><a class="dropdown-item" href="#">Votre avis compte</a></li>
+                        </ul>
+                      </div>
+                </li>
+                <li class="nav-item col-6 col-lg-2">
+                    <div class="dropdown">
+                        <button class="btn btn-secondary btn-lg dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+                          Nos services
+                        </button>
+                        <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+                          <li><a class="dropdown-item" href="#">Assitance SAV</a></li>
+                          <li><a class="dropdown-item" href="#">Assurance</a></li>
+                        </ul>
+                      </div>
+                </li>
+              </ul>
+        </footer>
         
         <script src="index.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4" crossorigin="anonymous"></script>
 
     </body>
     </html>
