@@ -21,10 +21,12 @@ function send(element1){
       }
     })
     .then(function(value) {
-        console.log(value);
         document
-        .getElementById("confirmation")
-        .innerHTML = "Votre numero de confirmation de commande: "+value.orderId+" pour un montant de "+prixTotal+"€";
+        .getElementById("numeroDeCommande")
+        .innerHTML = value.orderId;
+        document
+          .getElementById("prixTotal")
+          .innerHTML = prixTotal+"€"
      })
 
    

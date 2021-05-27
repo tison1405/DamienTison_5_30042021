@@ -9,7 +9,11 @@ for( let i = 0; i < localStorage.length; i++){
     const Commande = JSON.parse(localStorage.getItem(nomCommande));
     if ((isNaN(Commande.prix) == false)){
         numero += 1;
-        creerCommande(Commande.nom, Commande.prix, Commande.quantite, numero);
+        creerCommand(numero);
+        creerCommandeNumero(numero, Commande.nom);
+        creerCommandeName(Commande.nom);
+        creerCommandeQuantite(Commande.quantite, Commande.nom);
+        creerCommandePrix(Commande.prix, Commande.quantite, Commande.nom);
         prixTotals += Commande.prix*Commande.quantite/100;
         supprimer (numero);
 
@@ -24,21 +28,45 @@ for( let i = 0; i < localStorage.length; i++){
         
     }
 }
-
-function creerCommande (nom, prix, quantite, nombre){
-        var prixTotal = prix*quantite/100;
-        var x = document.createElement("P");
-        var t = document.createTextNode("article n°"+nombre+": "+nom+" nombres commandés: "+quantite+" prix:"+prixTotal+"€");
-        x.appendChild(t);
-        x.classList.add("article");
-        x.setAttribute ("id", nombre)
-        document.getElementById("pagnier").appendChild(x);
-
-
+function creerCommand (nombre){
+    var x = document.createElement("div");
+    var t = document.createTextNode("article n°"+nombre);
+    x.appendChild(t);
+    x.classList.add("commande");
+    x.setAttribute ("id", nombre)
+    document.getElementById("pagnier").appendChild(x);
+}
+function creerCommandeNumero (nombre, name){
+        var x = document.createElement("div");
+        x.classList.add("numero");
+        x.setAttribute("id", name)
+        document.getElementById(nombre).appendChild(x);
+}
+function creerCommandeName (name){
+    var x = document.createElement("div");
+    var t = document.createTextNode(name);
+    x.appendChild(t);
+    x.classList.add("name");
+    document.getElementById(name).appendChild(x);
+}
+function creerCommandeQuantite (quantite, name){
+    var x = document.createElement("div");
+    var t = document.createTextNode("Nombre commander = "+quantite);
+    x.appendChild(t);
+    x.classList.add("quantite");
+    document.getElementById(name).appendChild(x);
+}
+function creerCommandePrix (prix, quantite, name){
+    var montant = prix*quantite/100
+    var x = document.createElement("div");
+    var t = document.createTextNode("Prix = "+montant+"€");
+    x.appendChild(t);
+    x.classList.add("prix");
+    document.getElementById(name).appendChild(x);
 }
 function prixCommande (prixTotals){
     
-    var x = document.createElement("P");
+    var x = document.createElement("div");
     var t = document.createTextNode("Montant du pagnier = "+prixTotals+"€");
     x.appendChild(t);
     x.classList.add("prixCommande");
@@ -47,7 +75,7 @@ function prixCommande (prixTotals){
 prixCommande (prixTotals);
 
 document
-    .getElementById("bouttonFormulaire")
+    .getElementById("formulaire")
     .addEventListener("click", function(){
         tarif = {
             tarifTotal:""
@@ -60,8 +88,9 @@ document
 function supprimer (numero){
     var x = document.createElement("input");
     x.setAttribute("type", "button")
-    x.setAttribute ("value","suppimer");
+    x.setAttribute ("value","Suprimer");
     x.setAttribute ("id", "numero"+numero);
+    x.setAttribute("class", "suprimer");
     document.getElementById(numero).appendChild(x);
 }
 

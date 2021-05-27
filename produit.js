@@ -27,11 +27,11 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
   });
 
     let produitTeddie = document.getElementById("produitTeddie");
-    let menuCouleur = document.getElementById("menuCouleur");
+    let menuCouleur = document.getElementById("couleur");
     
 
     function nameTeddie(element1){
-    var x = document.createElement("P");
+    var x = document.createElement("p");
     var t = document.createTextNode(element1);
     x.appendChild(t);
     x.classList.add("nameTeddie");
@@ -41,8 +41,6 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
   function imageTeddy(element1) {
     var x = document.createElement("IMG");
     x.setAttribute("src", element1);
-    x.setAttribute("width", "304");
-    x.setAttribute("height", "228");
     x.classList.add("imageTeddie");
     produitTeddie.appendChild(x);
   }
@@ -54,32 +52,17 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
     x.classList.add("descriptionTeddie");
     produitTeddie.appendChild(x);
 }
-    function formCheckDiv(element1){
-        var x = document.createElement("div");
-        x.classList.add("form-check");
-        x.setAttribute("id", element1);
-        menuCouleur.appendChild(x);
-    }
-    function input(element1){
-        var x = document.createElement("input");
-        x.setAttribute("type", "checkbox");
-        x.setAttribute("id", "dropdownCheck");
-        x.classList.add("form-check-input");
-        document.getElementById(element1).appendChild(x);
-    }
-    function label(element1){
-        var x = document.createElement("label");
+    function optionCouleur(element1){
+        var x = document.createElement("option");
         var t = document.createTextNode(element1);
         x.appendChild(t);
-        x.classList.add("form-check-label");
-        x.setAttribute("for", "dropdownCheck");
-        document.getElementById(element1).appendChild(x);
+        x.setAttribute("value", element1);
+        menuCouleur.appendChild(x);
     }
+  
     function getCouleurs(couleurs){
         for (let couleur of couleurs){
-            formCheckDiv(couleur);
-            input(couleur);
-            label(couleur);
+            optionCouleur(couleur);
         }
     }
     function prixUnitaire(element1){
