@@ -97,12 +97,6 @@ function supprimer (numero){
 
 
 
-document
-    .getElementById("reset")
-    .addEventListener("click", function(){
-        localStorage.clear();
-        document.location.reload();
-    })
 
 
 

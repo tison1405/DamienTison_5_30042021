@@ -32,31 +32,41 @@
         <div id="valeurPagnier"></div>
         
 
-        <form class="was-validated" method="POST" action="confirmation_de_commande.html">
+        <form method="POST" action="confirmation_de_commande.html">
           <fieldset>
             <legend class="titreCoordonnees">Vos Coordonnées</legend>
             <div class=row>
               <div class="col-md-4">
                 <label for= "validationServer01" class="form-label">Nom de famille</label>
-                <input class="form-control is-invalid" id="validationServer01" pattern="[A-Za-z]{1,20}" placeholder="inscrir votre nom de famille" required/>
+                <input class="form-control" id="validationServer01" pattern="[^ 1-9]{1,}" placeholder="inscrir votre nom de famille" required/>
+                <div class="valid-feedback" id="validvalidationServer01"></div>
+                <div class="invalid-feedback"  id="invalidvalidationServer01"></div>
               </div>
               <div class="col-md-4">
                 <label for= "validationServer02" class="form-label">Prénon</label>
-                <input class="form-control is-invalid" id="validationServer02" pattern="[A-Za-z]{1,20}" placeholder="inscrir votre prénom" required/>
+                <input class="form-control" id="validationServer02" pattern="[^ 1-9]{1,}" placeholder="inscrir votre prénom" required/>
+                <div class="valid-feedback"id="validvalidationServer02"></div>
+                <div class="invalid-feedback" id="invalidvalidationServer02"></div>
              </div>
               <div class="col-md-4">
                 <label for= "validationServer03" class="form-label">Adresse Email</label>
-                <input type="email" class="form-control is-invalid" id="validationServer03" placeholder="inscrir votre email" required/>
+                <input type="email" class="form-control" id="validationServer03" placeholder="inscrir votre email" required/>
+                <div class="valid-feedback"id="validvalidationServer03"></div>
+                <div class="invalid-feedback" id="invalidvalidationServer03"></div>
               </div>
             </div>
             <div class=row>
               <div class="col-md-6">
                 <label for= "validationServer04" class="form-label">Adresse</label>
-                <textarea class="form-control is-invalid" id="validationServer04" placeholder="inscrir votre adresse" required></textarea>
+                <textarea class="form-control" id="validationServer04" placeholder="inscrir votre adresse" required></textarea>
+                <div class="valid-feedback"id="validvalidationServer04"></div>
+                <div class="invalid-feedback" id="invalidvalidationServer04"></div>
               </div>
               <div class="col-md-6">
                 <label for= "validationServer05" class="form-label">Ville</label>
-                <input type="text" class="form-control is-invalid" id="validationServer05" pattern="[A-Za-z]{1,20}" placeholder="inscrir votre ville" required/>
+                <input type="text" class="form-control" id="validationServer05" pattern="[^ 1-9]{1,}" placeholder="inscrir votre ville" required/>
+                <div class="valid-feedback"id="validvalidationServer05"></div>
+                <div class="invalid-feedback" id="invalidvalidationServer05"></div>
               </div>
             </div>
          </fieldset>

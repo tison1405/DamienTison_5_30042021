@@ -42,9 +42,12 @@ body{
     margin: 10px 10px 10px 10px;
     background-color:#e3f2fd ;
     border-radius: 10px 10px;
+    padding-bottom: 30px;
 }
 .imageTeddy{
     object-fit: cover;
+    height: 200px;
+    border-radius: 25px;
 }
 .card-title{
     font-size: 30px;
@@ -192,4 +195,8 @@ footer{
 }
 #numeroDeCommande{
     font-family: serif;
+}
+.is-invalid{
+    border-color: black;
+    background-image: none;
 }

@@ -1,12 +1,8 @@
 
 
-let nomFormulaire = document.getElementById("validationServer01");
-let prenomFormulaire = document.getElementById("validationServer02");
-let emailFormulaire = document.getElementById("validationServer03");
-let adresseFormulaire = document.getElementById("validationServer04");
-let villeFormulaire = document.getElementById("validationServer05");
 
-tableauFormulaire = [nomFormulaire, prenomFormulaire, emailFormulaire, adresseFormulaire, villeFormulaire];
+
+tableauFormulaire = ["validationServer01", "validationServer02", "validationServer03", "validationServer04", "validationServer05"];
 
 
 
@@ -27,19 +23,35 @@ document
             email:""
         }
         for (let entree of tableauFormulaire){
-        if (entree.validity.patternMismatch === true) {
-            console.log("I am expecting an e-mail address!");
-          } else if(entree.validity.typeMismatch === true) {
-              console.log("I am expecting an e-mail address!");
+
+        if (document.getElementById(entree).validity.patternMismatch === true) {
+            document.getElementById(entree).setAttribute("class", "form-control is-invalid");
+            var x = document.getElementById("invalid"+entree)
+                            .innerHTML = "Veuillez ecrir des lettres pas des chiffres!";
+
+
+          } else if(document.getElementById(entree).validity.typeMismatch === true) {
+            document.getElementById(entree).setAttribute("class", "form-control is-invalid");
+            var x = document.getElementById("invalid"+entree)
+                            .innerHTML = "Veuillez ecrir une adresse Email!";
+            
            
-          } else if(entree.validity.valueMissing === true) {
-              console.log("I am expecting an e-mail address!");
+          } else if(document.getElementById(entree).validity.valueMissing === true) {
+            document.getElementById(entree).setAttribute("class", "form-control is-invalid");
+             document.getElementById("invalid"+entree)
+                    .innerHTML = "Veuillez compléter le champ!";
+         
           }else{
-             contact.lastName = nomFormulaire.value;
-             contact.firstName = prenomFormulaire.value;
-             contact.email = emailFormulaire.value;
-             contact.address = adresseFormulaire.value;
-             contact.city = villeFormulaire.value;
+            document.getElementById(entree).setAttribute("class", "form-control is-valid");
+            var x = document.getElementById("valid"+entree)
+                            .innerHTML="vous avez completé correctement le champ!";
+            
+
+             contact.lastName = document.getElementById("validationServer01").value;
+             contact.firstName = document.getElementById("validationServer02").value;
+             contact.email = document.getElementById("validationServer03").value;
+             contact.address = document.getElementById("validationServer04").value;
+             contact.city = document.getElementById("validationServer05").value;
              
              }}
         
@@ -49,6 +61,7 @@ document
             function idquantite (valeur){
               products.push(valeur);
             }
+           
             
             for( let i = 0; i < localStorage.length; i++){
     
@@ -58,6 +71,11 @@ document
             
                  idquantite(Commande.id);
             }}
+            if (products.length == 0){
+                    e.preventDefault();
+                    alert ("votre panier est vide! Veuillez ajouter un article");
+            }
+              
         
 
             
