@@ -1,6 +1,7 @@
 const Confirmation = JSON.parse(localStorage.getItem("commandeConfirmée"));
 console.log(Confirmation.tableauProducts, Confirmation.objContact, Confirmation.tarif);
 const tarifTotal = JSON.parse(localStorage.getItem("totalTarif"));
+console.log(tarifTotal);
 let products = Confirmation.tableauProducts;
 let contact = Confirmation.objContact;
 let prixTotal = tarifTotal.tarifTotal;

@@ -1,5 +1,6 @@
 
 
+
 fetch("http://localhost:3000/api/teddies/")
   .then(function(res) {
     if (res.ok) {
@@ -8,11 +9,13 @@ fetch("http://localhost:3000/api/teddies/")
   })
 
   .then(function(value) {
+    
      getTeddies(value);
+    
   })
 
   .catch(function(err) {
-    alert ("probleme revenez plus tard")
+    alert ("probleme revenez plus tard");
   });
 
   let listing = document.getElementById("listing");
@@ -20,12 +23,12 @@ fetch("http://localhost:3000/api/teddies/")
 
 // la fonction teddy crée une div de la boucle avec un Id nameTeddy//
  function teddy(element1){
-  var x = document.createElement("a");
-  x.setAttribute('id', element1);
-  x.setAttribute("class", "card  col-lg-3 col-8");
-  x.setAttribute('href','page2.html');
-  listing.appendChild(x); 
-}
+    var x = document.createElement("a");
+    x.setAttribute('id', element1);
+    x.setAttribute("class", "card  col-lg-3 col-8");
+    x.setAttribute('href','produit.html');
+    listing.appendChild(x);
+    }
 function divCardBody(element1, element3){
   var x = document.createElement("div");
   x.setAttribute("class", "card-body");
@@ -54,8 +57,10 @@ function divCardBody(element1, element3){
   function clickTeddy (element1, element2){
     document
         .getElementById(element1)
-        .addEventListener ("click", function(){
+        .addEventListener ("click", function(e){
           setLocalStorage(element2);
+           
+        
         }) 
 
         
@@ -77,20 +82,27 @@ function divCardBody(element1, element3){
     const storageID = JSON.stringify(data);
     localStorage.setItem("product_value_teddies", storageID);
     console.log(data);
-}
+    }
 
 //la fonction getTeddies execute toute les autres fonctions a l'appel des produits backEnd//
   function getTeddies (teddies){
 
     for (let teddie of teddies){
       //la boucle extrait les valeurs des attributs "name" et "image" de chaque objet du tableau "value"//
+      if (!teddie.name){
+        console.log ("missing teddie.name")
+      } else if (!teddie._id){
+        console.log("missing teddie id")
+      } else if (!teddie.imageUrl){
+        console.log("missing image")
+      }else{
       teddy(teddie.name);
       divCardBody(teddie.name, teddie._id);
       nameTeddy(teddie.name, teddie._id);
       imageTeddy(teddie.name, teddie.imageUrl);
-      clickTeddy(teddie.name, teddie._id)
+      clickTeddy(teddie.name,teddie._id)
       
-    };
+    }};
   }
   
 
