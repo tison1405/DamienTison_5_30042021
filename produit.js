@@ -118,13 +118,16 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
       document
         .getElementById("Commander")
         .addEventListener("click",function(){
+          
           let numberTeddie = document.getElementById("quantite").value;
           commande.quantite = numberTeddie;
       const storageCommande = JSON.stringify(commande);
       localStorage.setItem("commande"+numero+name, storageCommande);
+      document.location.href = "panier.html";
         })
     }
 
+    $('input#Commander').click('redirection en js')
       
       
         

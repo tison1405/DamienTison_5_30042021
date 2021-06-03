@@ -97,7 +97,8 @@ document
           //envoie l'objet confirmation dans le localStorage//
             const storageConfirmation = JSON.stringify(confirmation);
             localStorage.setItem("commandeConfirmée", storageConfirmation);
-            console.log(confirmation);   
+            console.log(confirmation);
+            document.location.href = "confirmation_de_commande.html" ;  
     });
     
     
