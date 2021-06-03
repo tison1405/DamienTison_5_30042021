@@ -127,7 +127,7 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
         })
     }
 
-    $('input#Commander').click('redirection en js')
+    
       
       
         
