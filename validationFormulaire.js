@@ -1,6 +1,8 @@
 
 
 
+var validContact = 0;
+var validProduit = 0;
 
 tableauFormulaire = ["validationServer01", "validationServer02", "validationServer03", "validationServer04", "validationServer05"];
 
@@ -35,6 +37,7 @@ document
             document.getElementById(entree).setAttribute("class", "form-control is-invalid");
             var x = document.getElementById("invalid"+entree)
                             .innerHTML = "Veuillez écrire une adresse Email!";
+
             
           //valide que le champ est une valeur//
           } else if(document.getElementById(entree).validity.valueMissing === true) {
@@ -54,6 +57,8 @@ document
              contact.address = document.getElementById("validationServer04").value;
              contact.city = document.getElementById("validationServer05").value;
              
+             validContact += 1;
+             console.log(validContact);
              }}
         
             
@@ -77,10 +82,12 @@ document
               if (products.length == 0){
                       e.preventDefault();
                       alert ("votre panier est vide! Veuillez ajouter un article");
+              }else{
+                validProduit = 1;
               }}
             idQuantite();
             testProductsLength(products);
-            
+            console.log(validContact, validProduit);
            
             
            
@@ -98,7 +105,12 @@ document
             const storageConfirmation = JSON.stringify(confirmation);
             localStorage.setItem("commandeConfirmée", storageConfirmation);
             console.log(confirmation);
-            document.location.href = "confirmation_de_commande.html" ;  
+            if (validContact==5 && validProduit==1){
+              document.location.href = "confirmation_de_commande.html"; 
+            }else{
+              validContact=0;
+            }
+              
     });
     
     
