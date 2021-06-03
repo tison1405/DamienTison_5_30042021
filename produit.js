@@ -100,6 +100,7 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
           commande.quantite = numberTeddie;
           commande.article = numero;
           commande.id = id;
+          
           if (!commande.nom || !commande.prix || !commande.quantite || !commande.article || !commande.id){
             console.log("l'objet commande à un problême d'attribut")
             document
@@ -109,13 +110,16 @@ fetch("http://localhost:3000/api/teddies/"+teddie_id)
               })
           }else{
             console.log("l'objet commande est conforme")
-            commander(commande, numero, name);       
+            console.log(commande);
+            commander(commande, numero, name);      
           }}
    //Commander envoie au click du bouton Commander au localStorage un objet commande et dirige vers la page panier//
     function commander(commande, numero, name){
       document
         .getElementById("Commander")
         .addEventListener("click",function(){
+          let numberTeddie = document.getElementById("quantite").value;
+          commande.quantite = numberTeddie;
       const storageCommande = JSON.stringify(commande);
       localStorage.setItem("commande"+numero+name, storageCommande);
         })

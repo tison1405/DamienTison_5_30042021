@@ -1,5 +1,5 @@
 const Confirmation = JSON.parse(localStorage.getItem("commandeConfirmée"));
-console.log(Confirmation.tableauProducts, Confirmation.objContact, Confirmation.tarif);
+console.log(Confirmation.tableauProducts, Confirmation.objContact);
 const tarifTotal = JSON.parse(localStorage.getItem("totalTarif"));
 console.log(tarifTotal);
 let products = Confirmation.tableauProducts;
@@ -32,7 +32,7 @@ function send(element1){
 
    
     .catch(function(err) {
-        alert ("probleme revenez plus tard")
+        alert ("probleme avec le serveur revenez plus tard")
       });
   }   
 const body = {contact, products}

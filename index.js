@@ -104,6 +104,7 @@ function divCardBody(element1, element3){
       
     }};
   }
+  console.log("localStorage = "+localStorage.length);
   
 
 

@@ -10,7 +10,7 @@ tableauFormulaire = ["validationServer01", "validationServer02", "validationServ
 
 
      
-
+//envoie l'objet confirmation au localStorage au click commander//
 document
     .getElementById("formulaire")
     .addEventListener("click", function(e){
@@ -22,29 +22,30 @@ document
             city:"",
             email:""
         }
+        //boucle de controle des champs du formulaire//
         for (let entree of tableauFormulaire){
-
+        //valide la pattern//
         if (document.getElementById(entree).validity.patternMismatch === true) {
             document.getElementById(entree).setAttribute("class", "form-control is-invalid");
             var x = document.getElementById("invalid"+entree)
                             .innerHTML = "Veuillez ecrir des lettres pas des chiffres!";
 
-
+          //valide le type//
           } else if(document.getElementById(entree).validity.typeMismatch === true) {
             document.getElementById(entree).setAttribute("class", "form-control is-invalid");
             var x = document.getElementById("invalid"+entree)
-                            .innerHTML = "Veuillez ecrir une adresse Email!";
+                            .innerHTML = "Veuillez écrire une adresse Email!";
             
-           
+          //valide que le champ est une valeur//
           } else if(document.getElementById(entree).validity.valueMissing === true) {
             document.getElementById(entree).setAttribute("class", "form-control is-invalid");
              document.getElementById("invalid"+entree)
                     .innerHTML = "Veuillez compléter le champ!";
-         
+          //implante les valeurs saisis après vérification dans l'objet contact//
           }else{
             document.getElementById(entree).setAttribute("class", "form-control is-valid");
             var x = document.getElementById("valid"+entree)
-                            .innerHTML="vous avez completé correctement le champ!";
+                            .innerHTML="vous avez complèté correctement le champ!";
             
 
              contact.lastName = document.getElementById("validationServer01").value;
@@ -57,24 +58,32 @@ document
         
             
 
-            let products = [];
-            function idquantite (valeur){
-              products.push(valeur);
+             let products = [];
+            //implante les id des teddies commandés dans le tableau products//
+            function idQuantite (){
+              for( let i = 0; i < localStorage.length; i++){
+    
+                let nomCommande = localStorage.key(i);
+                 const Commande = JSON.parse(localStorage.getItem(nomCommande));
+                 if ((isNaN(Commande.prix) == false)){
+                  products.push(Commande.id);    
+                }else{
+                  //do not think//
+                }
+              }
             }
+            //verifie qu'il y a bien des id dans le tableau si non bloque le bouton commander//
+            function testProductsLength (products) {
+              if (products.length == 0){
+                      e.preventDefault();
+                      alert ("votre panier est vide! Veuillez ajouter un article");
+              }}
+            idQuantite();
+            testProductsLength(products);
+            
            
             
-            for( let i = 0; i < localStorage.length; i++){
-    
-            let nomCommande = localStorage.key(i);
-             const Commande = JSON.parse(localStorage.getItem(nomCommande));
-             if ((isNaN(Commande.prix) == false)){
-            
-                 idquantite(Commande.id);
-            }}
-            if (products.length == 0){
-                    e.preventDefault();
-                    alert ("votre panier est vide! Veuillez ajouter un article");
-            }
+           
               
         
 
@@ -82,20 +91,13 @@ document
              confirmation = {
                 tableauProducts:"",
                 objContact:"",
-                tarif:""
             }
             confirmation.tableauProducts = products;
             confirmation.objContact = contact;
-            confirmation.tarif = document.getElementsByClassName("prixCommande").value;
-
-            console.log(confirmation.tarif);
-
+          //envoie l'objet confirmation dans le localStorage//
             const storageConfirmation = JSON.stringify(confirmation);
             localStorage.setItem("commandeConfirmée", storageConfirmation);
-            console.log(confirmation);
-            
-            
-            
-        
+            console.log(confirmation);   
     });
+    
     
