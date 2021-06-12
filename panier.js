@@ -83,7 +83,7 @@ function supprimer (numero, article, nom){
 //prixCommande affiche le montant total du panier//
 function prixCommande (prixTotals){
     var x = document.createElement("div");
-    var t = document.createTextNode("Montant du pagnier = "+prixTotals+"€");
+    var t = document.createTextNode("Montant du panier = "+prixTotals+"€");
     x.appendChild(t);
     x.classList.add("prixCommande");
     document.getElementById("valeurPagnier").appendChild(x);

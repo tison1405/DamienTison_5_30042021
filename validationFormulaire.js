@@ -105,6 +105,7 @@ document
             const storageConfirmation = JSON.stringify(confirmation);
             localStorage.setItem("commandeConfirmée", storageConfirmation);
             console.log(confirmation);
+            //verifie les variables vontact et tableau avant de pouvoir passer sur la page confirmation//
             if (validContact==5 && validProduit==1){
               document.location.href = "confirmation_de_commande.html"; 
             }else{
